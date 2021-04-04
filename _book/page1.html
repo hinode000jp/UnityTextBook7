@@ -1,0 +1,367 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>アプリケーションに音を追加してみる · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 3.6.15">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="page1.html">
+            
+                <a href="page1.html">
+            
+                    
+                    アプリケーションに音を追加してみる
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >アプリケーションに音を追加してみる</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="アプリケーションに音を追加してみる">アプリケーションに音を追加してみる</h1>
+<h2 id="unityのaudio">UnityのAudio</h2>
+<p><br></p>
+<p>Unityのオーディオ機能は、フル3Dサウンド、リアルタイムミキシングとマスタリング機能、ミキサーのヒエラルキー、スナップショット、定義済みエフェクトなどを備えています。</p>
+<p>ゲームにバックグラウンドで流れる音楽やサウンドエフェクトは欠かせません。多くの一般的なオーディオファイルフォーマットをインポートすることができ、3D空間でサウンドを作成するための機能、さらにエコーやフィルタリングのようなエフェクトを備えています。</p>
+<p>Unityでは位置の影響をシュミレートするために、AudioSourceのついたオブジェクトから発生する音が必要になります。発生した音はAudioListenerのついた他のオブジェクト（主にメインカメラ）に拾われます。Unityはリスナーオブジェクトからソースまでの距離と位置の影響をシュミレートし、それに応じて再生された音をユーザーに届けます。ドップラー効果によるリアリズムを加えるため、ソースとリスナーオブジェクトの相対速度もシュミレートされます。</p>
+<p>Unityはシーンのジオメトリから正確なエコーを計算することはできませんが、オブジェクトにAudioFilterをつけることによってシュミレートすることができます。</p>
+<p>UnityはAIFF、WAV、MP3、Ogg形式のオーディオファイルを他のアセットのようにプロジェクトパネルにドラッグしてインポートしることができます。オーディオファイルをインポートすることでオーディオクリップが作成され、オーディオソースやスクリプトによって使用されます。オーディオクリップのリファレンスページにはオーディオファイルで使用可能なインポートオプションについての詳細が載っています。</p>
+<p><br></p>
+<h2 id="bgmを追加してみよう">BGMを追加してみよう</h2>
+<p>まず初めにアプリケーション内で常に再生されるBGMをつけてみたいと思います。</p>
+<p>Unityのプロジェクトを開き、BGMとして流すための音データをインポートしてください。</p>
+<p>音データはUnityのアセットストアからダウンロードしても構いませんし、別のサイトからダウンロードして使用しても構いません。<br>著作権にのみ気をつけてください。</p>
+<p>形式は上記に書いてあるものを使用します。</p>
+<p><br></p>
+<p><img src="img/image1-1.png" alt=""></p>
+<p>音データをUnityのAssetsフォルダにインポートしたら新規でSoundsフォルダを作成し、その中に格納してください。</p>
+<p>そしてその音データをヒエラルキーウィンドウにドラッグ&amp;ドロップしましょう。</p>
+<p>そうすると上記の画像のように音データがUnityのシーン内に配置されます。</p>
+<p><br></p>
+<p><img src="img/image1-2.png" alt=""></p>
+<p>インスペクターウィンドウを見てみると、このように自動的にAudioSourceコンポーネントが追加されています。
+デフォルトで「Play On Awake」のチェックがついているかと思います。<br>これはこのシーンが開いた時に自動的にこの音データを再生させることができるようにするという意味です。</p>
+<p>今回はBGMなのでその下の「Loop」にもチェックを入れてください。<br>これでこの音データをループで再生させることができます。</p>
+<p>このままだと少しBGMが大きすぎるので、下のVolumeを調整してください。</p>
+<p>ここまで終わったら、一度実行してみましょう。</p>
+<p>無事にBGMが鳴っていれば成功です。</p>
+<p><br></p>
+<h2 id="効果音を追加してみよう">効果音を追加してみよう</h2>
+<p>無事BGMが鳴ったので、次は効果音を鳴らしてみたと思います。</p>
+<p>今回は単純にプレイヤーが壁に当たったら当たったような効果音を再生するようにしたいと思います。これを応用すれば、例えば家具に当たった場合の音や、メニューの操作音等を自由に設定することができます。</p>
+<p>効果音を追加するに当たって、まずはプレイヤーを配置する必要があります。</p>
+<p>プレイヤーの配置方法や移動方法などは<a href="https://hinode000jp.github.io/UnityTextBook3/page1.html" target="_blank">こちら</a>の教科書を参考に作成してください。</p>
+<p><img src="img/image1-3.png" alt=""></p>
+<p>教科書をみながら作成してもらえれば、このようにキーボードとマウスで操作できるプレイヤーを作成できているかと思います。  </p>
+<p><br></p>
+<h3 id="効果音をインポート">効果音をインポート</h3>
+<p><img src="img/image1-4.png" alt=""></p>
+<p>まずは壁にぶつかった時の効果音をUnityのアセットストアか別のサイトなどからインポートしてください。</p>
+<p>そしてSoundsフォルダに格納しておきましょう。</p>
+<p><br></p>
+<p><img src="img/image1-5.png" alt=""></p>
+<p>次にPlayerとなるカプセルにAudioSourceコンポーネントをアタッチします。<br>今回は当たった時に効果音を鳴らすので、Play On Awakeのチェックは外しておきましょう。<br>そしてAUdioSourceコンポーネント内のAudioClipの場所にプロジェクトウィンドウから今回再生する効果音をドラッグ&amp;ドロップしてください。</p>
+<p>ここでもボリューム等を調整しておきます。（実際に聞いてから修正しても構いません）</p>
+<p>AudioSourceは音を再生するためのプレイヤーのような役割を果たします。</p>
+<p><br></p>
+<p>次にVisualStudioでPlayerControllerスクリプトを開き、コードを以下のように変更してください。</p>
+<pre><code class="lang-c#"><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PlayerController</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">float</span> speed = <span class="hljs-number">0.02f</span>;
+    AudioSource audioSource;
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        audioSource = GetComponent&lt;AudioSource&gt;();
+    }
+
+    <span class="hljs-comment">// Update is called once per frame</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-built_in">float</span> x = Input.GetAxis(<span class="hljs-string">&quot;Horizontal&quot;</span>);
+        <span class="hljs-built_in">float</span> z = Input.GetAxis(<span class="hljs-string">&quot;Vertical&quot;</span>);
+
+        transform.Translate(x * speed, <span class="hljs-number">0.0f</span>, z * speed);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionEnter</span>(<span class="hljs-params">Collision collision</span>)</span>
+    {
+        <span class="hljs-keyword">if</span> (collision.gameObject.CompareTag(<span class="hljs-string">&quot;Wall&quot;</span>))
+        {
+            audioSource.Play();
+        }
+    }
+}
+</code></pre>
+<p><code>AudioSource audioSource;</code>で AudioSource型の変数を定義し、Startメソッド内でカプセルについているAudioSourceを取得しています。</p>
+<p>次に<code>private void OnCollisionEnter(Collision collision)</code>でオブジェクト通しの衝突が発生した時にこちらのメソッドが実行されるようにします。</p>
+<p>そして<code>if (collision.gameObject.CompareTag(&quot;Wall&quot;))</code>でもしカプセルと衝突したオブジェクトのタグがWallだった場合という条件下で、<code>audioSource.Play();</code>というコードで効果音を再生するようにしています。
+ここまで書けたらコードを保存してUnityに戻りましょう。</p>
+<p><img src="img/image1-6.png" alt=""></p>
+<p>最後に壁のオブジェクト全てに「Wall」という名前のタグを作成し追加してください。<br>ここまでできたら一度実行してみましょう。  </p>
+<p>プレイヤーが壁にぶつかった時に効果音が流れていれば成功です。</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"アプリケーションに音を追加してみる","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"page1.md","mtime":"2021-04-04T12:47:21.277Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2021-04-04T12:47:52.709Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

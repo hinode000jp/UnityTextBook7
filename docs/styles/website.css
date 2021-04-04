@@ -1,0 +1,28 @@
+h1 {
+  margin-top: 4em !important;
+  padding: 0.4em 0.5em; /*文字の上下 左右の余白*/
+  color: #494949; /*文字色*/
+  background: #f4f4f4; /*背景色*/
+  border-left: solid 5px #7db4e6; /*左線*/
+  border-bottom: solid 3px #d7d7d7; /*下線*/
+}
+p {
+  margin-bottom: 1em !important;
+}
+h2 {
+  color: rgb(66, 66, 66);
+  border-bottom: rgb(66, 66, 66) 2px dashed;
+  margin-top: 2em !important;
+}
+
+.point {
+  border: rgb(42, 165, 138) 2px solid;
+  border-radius: 25px;
+  padding: 1em;
+}
+.warning {
+  padding: 0.4em 0.5em; /*文字の上下 左右の余白*/
+  color: #494949; /*文字色*/
+  background: #f4f4f4; /*背景色*/
+  border-left: solid 5px #e67da0; /*左線*/
+}
