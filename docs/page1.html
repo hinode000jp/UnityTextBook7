@@ -166,6 +166,7 @@
 <p>ゲームにバックグラウンドで流れる音楽やサウンドエフェクトは欠かせません。多くの一般的なオーディオファイルフォーマットをインポートすることができ、3D空間でサウンドを作成するための機能、さらにエコーやフィルタリングのようなエフェクトを備えています。</p>
 <p>Unityでは位置の影響をシュミレートするために、AudioSourceのついたオブジェクトから発生する音が必要になります。発生した音はAudioListenerのついた他のオブジェクト（主にメインカメラ）に拾われます。Unityはリスナーオブジェクトからソースまでの距離と位置の影響をシュミレートし、それに応じて再生された音をユーザーに届けます。ドップラー効果によるリアリズムを加えるため、ソースとリスナーオブジェクトの相対速度もシュミレートされます。</p>
 <p>Unityはシーンのジオメトリから正確なエコーを計算することはできませんが、オブジェクトにAudioFilterをつけることによってシュミレートすることができます。</p>
+<p><img src="img/image-sound.png" alt=""></p>
 <p>UnityはAIFF、WAV、MP3、Ogg形式のオーディオファイルを他のアセットのようにプロジェクトパネルにドラッグしてインポートしることができます。オーディオファイルをインポートすることでオーディオクリップが作成され、オーディオソースやスクリプトによって使用されます。オーディオクリップのリファレンスページにはオーディオファイルで使用可能なインポートオプションについての詳細が載っています。</p>
 <p><br></p>
 <h2 id="bgmを追加してみよう">BGMを追加してみよう</h2>
@@ -245,6 +246,25 @@
 <p><img src="img/image1-6.png" alt=""></p>
 <p>最後に壁のオブジェクト全てに「Wall」という名前のタグを作成し追加してください。<br>ここまでできたら一度実行してみましょう。  </p>
 <p>プレイヤーが壁にぶつかった時に効果音が流れていれば成功です。</p>
+<p><br></p>
+<h2 id="3dサウンドを追加してみよう">3Dサウンドを追加してみよう</h2>
+<p>次に3Dサウンドを使用してみたいと思います。
+現在のBGMはシーン内のどこにいても同じ大きさで聞こえますし、効果音はプレイヤー自身から再生されているので音の強弱はありません。しかし3D空間内にいる場合はその音の発生源に近づけば大きくなりますし、遠ざかると音が小さくなるのが通常だと思います。</p>
+<p>本来であればVR用の反響させるようなプラグインなどもあるのですが、今回はもっとも簡単な方法、距離に応じて音の強弱を再現できる方法をご紹介します。</p>
+<p>どこに音を追加するかは自由ですが、今回は窓に近づくと外の音（鳥の鳴き声や雑踏の音）が聞こえてくるようにしてみたいと思います。</p>
+<p>まずは家の外のような音源をUnityにインポートしてください。</p>
+<p>私は今回は<a href="https://vsq.co.jp/special/se_environment/" target="_blank">こちら</a>を利用してみました。</p>
+<p><img src="img/image1-7.png" alt=""></p>
+<p>まずは窓の外に空のゲームオブジェクトを配置します。</p>
+<p>次にそのゲームオブジェクトに音データをドラッグ&amp;ドロップしてください。
+これで自動的にAudioSourceコンポーネントが追加されました。</p>
+<p>次にボリュームを少し小さめにし、「<code>SpetialBlend</code>」を１にしてください。
+SpetialBlendは3D エンジンがオーディオソースに影響を与える度合いを設定します。</p>
+<p>ある程度修正できたら実行してみましょう。</p>
+<p>窓に近づくにつれて音が大きくなっていれば成功です。</p>
+<p>少し音が大きすぎて違いが分からない・音が小さすぎるといった場合はパラメーターを微調整してください。</p>
+<p><br></p>
+<p>今回は簡単にBGMや効果音などを追加しましたが、VRでは専用の<code>VR Audio Spatializers</code>というプラグインもあるので、もっと本格的に音を反響などさせて実装してみたいといった場合はぜひチャレンジしてみましょう！</p>
 
                                 
                                 </section>
@@ -284,7 +304,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"アプリケーションに音を追加してみる","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"page1.md","mtime":"2021-04-04T12:47:21.277Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2021-04-04T12:48:54.530Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"アプリケーションに音を追加してみる","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"page1.md","mtime":"2021-04-04T13:15:09.054Z","type":"markdown"},"gitbook":{"version":"3.6.15","time":"2021-04-04T13:15:21.569Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
