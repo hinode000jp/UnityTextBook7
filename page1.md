@@ -173,8 +173,8 @@ public class PlayerController : MonoBehaviour
 次にそのゲームオブジェクトに音データをドラッグ&ドロップしてください。
 これで自動的にAudioSourceコンポーネントが追加されました。
 
-次にボリュームを少し小さめにし、「`SpetialBlend`」を１にしてください。
-SpetialBlendは3D エンジンがオーディオソースに影響を与える度合いを設定します。
+次にボリュームを少し小さめにし、「`SpatialBlend`」を１にしてください。
+SpatialBlendは3D エンジンがオーディオソースに影響を与える度合いを設定します。
 
 ある程度修正できたら実行してみましょう。
 
